@@ -8,10 +8,10 @@
 ![downloads](https://img.shields.io/github/downloads/black-fractal/HackZurich2022_KiNG/total?style=plastic)
 ![license](https://img.shields.io/github/license/black-fractal/HackZurich2022_KiNG?style=plastic)
 
-**A `python` script that allows you to have all formations of HackZurich2022_KiNG puzzle!**
+**A `django` project that prepared for HackZurich 2022 by group KiNG!**
 
 ## Brief Summary
-![Logo!](https://github.com/black-fractal/HackZurich2022_KiNG/blob/main/img/logo-circle.png)
+![Logo!](https://github.com/black-fractal/HackZurich2022_KiNG/blob/main/img/logo.png)
 The n-queens puzzle is the problem of placing n chess queens on an n×n chessboard so that no two queens threaten each other; thus, a solution requires that no two queens share the same row, column, or diagonal. Solutions exist for all natural numbers n with the exception of `n=2` and `n=3`.
 
 <p align="left">
