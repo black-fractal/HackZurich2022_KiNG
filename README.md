@@ -39,7 +39,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Update to latest version:
+## Get Latest Version
 - Use following command to update to latest version:
 ```bash
 git pull
