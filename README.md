@@ -13,34 +13,34 @@
 ## Brief Summary
 <p align="center">
   <img src="https://github.com/black-fractal/HackZurich2022_KiNG/blob/main/img/logo.png"  width="50%" height="50%">
-</p
+</p>
 
 ## Installation Steps
-1. Clone 'HackZurich2022_KiNG' from git:\
+1. Clone 'HackZurich2022_KiNG' from git:
 ```bash
 git clone https://github.com/black-fractal/HackZurich2022_KiNG.git
 ```
 
-2. Change the directory:\
+2. Change the directory:
 ```bash
 cd HackZurich2022_KiNG
 ```
 
-3. Install Python venv:\
+3. Install Python venv:
 ```bash
 python3 -m venv venv
 ```
 
 ## Requirements
 
-Install the requirements via pip:\
+Install the requirements via pip:
 ```bash
 source venv/bin/activate
 pip install -r requirements.txt
 ```
 
 ## Update to latest version:
-Use following command to update to latest version:\
+Use following command to update to latest version:
 ```bash
 git pull
 ````
