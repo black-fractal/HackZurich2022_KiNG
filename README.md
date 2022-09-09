@@ -1,14 +1,14 @@
 # HackZurich 2022 - KiNG
 [![made-with-python](https://img.shields.io/badge/made%20with-Python%20%3E3-1f425f.svg?color=blueviolet&style=plastic&logo=python)](https://www.python.org/)
 [![ide](https://img.shields.io/badge/IDE-VSCode-yellowgreen?style=plastic&logo=visual-studio-code)](https://code.visualstudio.com/)
-![code-size](https://img.shields.io/github/languages/code-size/black-fractal/HackZurich2022-KiNG?style=plastic)
-![total-lines](https://img.shields.io/tokei/lines/github/black-fractal/HackZurich2022-KiNG?style=plastic&color=green)
-![commit-activity](https://img.shields.io/github/commit-activity/m/black-fractal/HackZurich2022-KiNG?color=brightgreen&style=plastic)
-![last-commit](https://img.shields.io/github/last-commit/black-fractal/HackZurich2022-KiNG?color=9cf&style=plastic)
-![downloads](https://img.shields.io/github/downloads/black-fractal/HackZurich2022-KiNG/total?style=plastic)
-![license](https://img.shields.io/github/license/black-fractal/HackZurich2022-KiNG?style=plastic)
+![code-size](https://img.shields.io/github/languages/code-size/black-fractal/HackZurich2022_KiNG?style=plastic)
+![total-lines](https://img.shields.io/tokei/lines/github/black-fractal/HackZurich2022_KiNG?style=plastic&color=green)
+![commit-activity](https://img.shields.io/github/commit-activity/m/black-fractal/HackZurich2022_KiNG?color=brightgreen&style=plastic)
+![last-commit](https://img.shields.io/github/last-commit/black-fractal/HackZurich2022_KiNG?color=9cf&style=plastic)
+![downloads](https://img.shields.io/github/downloads/black-fractal/HackZurich2022_KiNG/total?style=plastic)
+![license](https://img.shields.io/github/license/black-fractal/HackZurich2022_KiNG?style=plastic)
 
-**A `python` script that allows you to have all formations of HackZurich2022-KiNG puzzle!**
+**A `python` script that allows you to have all formations of HackZurich2022_KiNG puzzle!**
 
 ## Brief Summary
 ![Logo!](https://github.com/black-fractal/n-queens/blob/main/img/n-queens-logo.png)
@@ -56,11 +56,11 @@ The six queens puzzle has fewer solutions than the five queens puzzle.
 There is no known formula for the exact number of solutions, or even for its asymptotic behaviour. The [27×27](https://github.com/preusser/q27) board is the highest-order board that has been completely enumerated.
 
 ## Installation Steps
-1. Clone 'HackZurich2022-KiNG' from git:\
-`git clone https://github.com/black-fractal/HackZurich2022-KiNG.git`
+1. Clone 'HackZurich2022_KiNG' from git:\
+`git clone https://github.com/black-fractal/HackZurich2022_KiNG.git`
 
 2. Change the directory:\
-`cd HackZurich2022-KiNG`
+`cd HackZurich2022_KiNG`
 
 3. Install the requirements:\
 `pip3 install -r requirements.txt`
