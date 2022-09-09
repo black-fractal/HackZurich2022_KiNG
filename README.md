@@ -33,14 +33,14 @@ python3 -m venv venv
 
 ## Requirements
 
-Install the requirements via pip:
+- Install the requirements via pip:
 ```bash
 source venv/bin/activate
 pip install -r requirements.txt
 ```
 
 ## Update to latest version:
-Use following command to update to latest version:
+- Use following command to update to latest version:
 ```bash
 git pull
 ````
