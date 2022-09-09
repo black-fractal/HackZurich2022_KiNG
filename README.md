@@ -11,17 +11,25 @@
 **A `django` project that prepared for HackZurich 2022 by group KiNG!**
 
 ## Brief Summary
-<img src="https://github.com/black-fractal/HackZurich2022_KiNG/blob/main/img/logo.png"  width="50%" height="50%" style="display: block;margin-left: auto; margin-right: auto;">
+<p align="center">
+  <img src="https://github.com/black-fractal/HackZurich2022_KiNG/blob/main/img/logo.png"  width="50%" height="50%">
+</p
 
 ## Installation Steps
 1. Clone 'HackZurich2022_KiNG' from git:\
-`git clone https://github.com/black-fractal/HackZurich2022_KiNG.git`
+```bash
+git clone https://github.com/black-fractal/HackZurich2022_KiNG.git
+```
 
 2. Change the directory:\
-`cd HackZurich2022_KiNG`
+```bash
+cd HackZurich2022_KiNG
+```
 
 3. Install Python venv:\
-`python3 -m venv venv`
+```bash
+python3 -m venv venv
+```
 
 ## Requirements
 
@@ -33,7 +41,9 @@ pip install -r requirements.txt
 
 ## Update to latest version:
 Use following command to update to latest version:\
-`git pull`
+```bash
+git pull
+````
 
 ## Usage
 - To run:
