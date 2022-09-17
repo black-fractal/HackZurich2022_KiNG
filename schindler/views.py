@@ -25,14 +25,15 @@ def lifts_api(request):
 
 @csrf_exempt
 def generate_users_api(request):
-    if request.method == "post":
+    if request.method == "POST":
         try:
-            number = request.get("users")
+            number = int(request.POST.get("users", "0"))
             return JsonResponse(generate_random_users(number), safe=False)
         except:
             return HttpResponse('Error: Could not generate random users')
 
+
 @csrf_exempt
-def list_users( request ):
+def list_users(request):
     users = UserProfile.objects.all()
-    return render( request, 'schindler/users.html', { 'users' : users } )
+    return render(request, 'schindler/users.html', {'users': users})
