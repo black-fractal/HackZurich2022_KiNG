@@ -40,6 +40,7 @@ def list_users(request):
     return render(request, 'schindler/users.html', {'users': users})
 
 
+<<<<<<< HEAD
 @csrf_exempt
 def generate_simulation_api(request):
     if request.method == "POST":
@@ -54,3 +55,8 @@ def generate_simulation_api(request):
 def list_simulation(request):
     simulation = Simulation.objects.all()
     return render(request, 'schindler/simulation.html', {'simulation': simulation})
+=======
+def platte_api(request):
+    pass
+# TODO:return array from users
+>>>>>>> 376756ceface3b0ff395bd8a66de438b57c5a26e
