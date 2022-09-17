@@ -20,6 +20,7 @@
                     method: 'get',
                     success: function (data) {
                         let lifts_html = $("#lifts");
+                        let show_data = "";
 
                         lifts_html.remove();
                         let building = [];
@@ -35,7 +36,7 @@
                             let lift_i_y = lift_i['y'];
                         }
 
-                        data.appendTo(data);
+                        lifts_html.data(show_data);
                     }
                 });
             });
