@@ -12,7 +12,7 @@
 
 ## Brief Summary
 <p align="center">
-  <img src="https://github.com/black-fractal/HackZurich2022_KiNG/img/new-logo.png"  width="50%" height="50%">
+  <img src="https://github.com/black-fractal/HackZurich2022_KiNG/blob/main/img/new-logo.png"  width="50%" height="50%">
 </p>
 
 ## Installation Steps
