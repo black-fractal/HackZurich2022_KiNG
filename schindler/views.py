@@ -12,7 +12,7 @@ from schindler.models import *
 
 
 def dashboard(request):
-    return render(request, 'schindler/dashboard.html')
+    return render(request, 'schindler/index.html')
 
 
 def lifts_view(request):

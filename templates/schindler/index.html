@@ -3,21 +3,39 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>psdtowebhome.psd</title>
-    <link href="styles.css" rel="stylesheet" type="text/css">
+    <title>Dashboard</title>
+    <link href="{% static 'psdtowebhome/styles.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div id="background">
-
-    <div id="Layer1"><img src="{% static 'psdtowebhome/images/Layer1.png' %}"></div>
-    <div id="Layer2"><img src="{% static 'psdtowebhome/images/Layer2.png' %}"></div>
-    <div id="RoundedRectangle1"><img src="{% static 'psdtowebhome/images/RoundedRectangle1.png' %}"></div>
-    <div id="RoundedRectangle1cop"><img src="{% static 'psdtowebhome/images/RoundedRectangle1cop.png' %}"></div>
-    <div id="RoundedRectangle1cop_0"><img src="{% static 'psdtowebhome/images/RoundedRectangle1cop_0.png' %}"></div>
-    <div id="Layer2copy"><img src="{% static 'psdtowebhome/images/Layer2copy.png' %}"></div>
-    <div id="Profiler"><img src="{% static 'psdtowebhome/images/Profiler.png' %}"></div>
-    <div id="Sequencer"><img src="{% static 'psdtowebhome/images/Sequencer.png' %}"></div>
-    <div id="SimVisualizer"><img src="{% static 'psdtowebhome/images/SimVisualizer.png' %}"></div>
+    <div id="Layer1">
+        <img src="{% static 'psdtowebhome/images/Layer1.png' %}">
+    </div>
+    <div id="Layer2">
+        <img src="{% static 'psdtowebhome/images/Layer2.png' %}"></div>
+    <div id="RoundedRectangle1">
+        <img src="{% static 'psdtowebhome/images/RoundedRectangle1.png' %}"></div>
+    <div id="RoundedRectangle1cop">
+        <img src="{% static 'psdtowebhome/images/RoundedRectangle1cop.png' %}"></div>
+    <div id="RoundedRectangle1cop_0">
+        <img src="{% static 'psdtowebhome/images/RoundedRectangle1cop_0.png' %}"></div>
+    <div id="Layer2copy">
+        <img src="{% static 'psdtowebhome/images/Layer2copy.png' %}"></div>
+    <div id="Profiler">
+        <a href="{% url 'schindler-users' %}">
+            <img src="{% static 'psdtowebhome/images/Profiler.png' %}">
+        </a>
+    </div>
+    <div id="Sequencer">
+        <a href="{% url 'schindler-simulation' %}">
+            <img src="{% static 'psdtowebhome/images/Sequencer.png' %}">
+        </a>
+    </div>
+    <div id="SimVisualizer">
+        <a href="#">
+            <img src="{% static 'psdtowebhome/images/SimVisualizer.png' %}">
+        </a>
+    </div>
 </div>
 </body>
 </html>
