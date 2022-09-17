@@ -1,4 +1,4 @@
-# HackZurich 2022 - KiNG
+# HackZurich 2022 - The Living Elevator
 [![made-with-python](https://img.shields.io/badge/made%20with-Python%20%3E3-1f425f.svg?color=blueviolet&style=plastic&logo=python)](https://www.python.org/)
 [![ide](https://img.shields.io/badge/IDE-VSCode-yellowgreen?style=plastic&logo=visual-studio-code)](https://code.visualstudio.com/)
 ![code-size](https://img.shields.io/github/languages/code-size/black-fractal/HackZurich2022_KiNG?style=plastic)
@@ -8,11 +8,11 @@
 ![downloads](https://img.shields.io/github/downloads/black-fractal/HackZurich2022_KiNG/total?style=plastic)
 ![license](https://img.shields.io/github/license/black-fractal/HackZurich2022_KiNG?style=plastic)
 
-**A `django` project that prepared for HackZurich 2022 by group KiNG!**
+**A `django` project that prepared for HackZurich 2022!**
 
 ## Brief Summary
 <p align="center">
-  <img src="https://github.com/black-fractal/HackZurich2022_KiNG/blob/main/img/logo.png"  width="50%" height="50%">
+  <img src="https://github.com/black-fractal/HackZurich2022_KiNG/new-logo.png"  width="50%" height="50%">
 </p>
 
 ## Installation Steps
