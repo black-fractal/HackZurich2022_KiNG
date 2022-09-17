@@ -23,6 +23,4 @@ urlpatterns = [
     path('schindler/simulation/stop/', stop_simulation, name='schindler-simulation-stop'),
 
     path('schindler/simulation/', list_simulation, name='schindler-simulation'),
-
-    path('schindler/simulation/', list_simulation, name='schindler-simulation'),
 ]
