@@ -2,8 +2,9 @@ import random
 
 import names
 
+from schindler.ML.inference import tokenize_only,predict_cluster
+
 from schindler.models import MAX_JOURNEY_FREQ, Cluster, UserProfile, interests
-from schindler.ML.inference import predict_cluster,tokenize_only
 
 
 

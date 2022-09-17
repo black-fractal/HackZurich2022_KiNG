@@ -1,4 +1,4 @@
-from inference import predict_cluster,tokenize_only
+from inference import tokenize_only,predict_cluster
 
 data_point={'name': 'Michael Delker',
  'interests': 'movie,adventure,science,politics,fashion,culture',
