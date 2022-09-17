@@ -12,4 +12,8 @@ urlpatterns = [
     # users
     path('schindler/users/generate/', generate_users_api, name='schindler-users-generate'),
     path('schindler/users/', list_users, name='schindler-users'),
+
+    # simulation
+    path('schindler/simulation/generate/', generate_simulation_api, name='schindler-simulation-generate'),
+    path('schindler/simulation/', list_simulation, name='schindler-simulation'),
 ]

@@ -12,12 +12,9 @@ interests = [
     ('food', 'Vegetables, Fruits, Grains, Beans, Nuts, Meat, Poultry, Seafood, Dairy, ...'),
     ('fashion', 'Vintage, Artsy, Casual, Grunge style clothing, Chic, Bohemian, Sexy, Exotic, ...'),
     ('pets', 'Cats, Dogs, Birds, Rabbits, Horses, Ferrets, Fish, ...'),
-    ('joke',
-     'Observational, Anecdotal, Situational, Character, One-liner, Ironic, Deadpan, Farcical, Self-deprecating, Slapstick, ...'),
+    ('joke', 'Observational, Anecdotal, Situational, Character, One-liner, Ironic, Deadpan, Farcical, Self-deprecating, Slapstick, ...'),
     ('politics', 'Band society, Chiefdom, Empires, Leagues, ...'),
-    (
-        'adventure',
-        'Yoga, Trekking, Cycling, Canoeing, Kayaking, Rock climbing, Multi-adventure travel, New Zealand, ...')
+    ('adventure', 'Yoga, Trekking, Cycling, Canoeing, Kayaking, Rock climbing, Multi-adventure travel, New Zealand, ...')
 ]
 
 
@@ -42,3 +39,18 @@ class UserProfile(models.Model):
 
     def get_interests_list(self):
         return self.interests.split(',')
+
+class Simulation(models.Model):
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='SimulationUserProfile', null=True)
+    source = models.IntegerField()
+    destination = models.IntegerField()
+    delay = models.PositiveIntegerField()
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'user_profile': self.user_profile,
+            'source': self.source,
+            'destination': self.destination,
+            'delay': self.delay,
+        }
