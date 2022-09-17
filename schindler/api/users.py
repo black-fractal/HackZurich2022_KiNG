@@ -1,12 +1,15 @@
 import random
+import re
 
 import names
 import nltk
-import re
 from nltk.stem.snowball import SnowballStemmer
+
 stemmer = SnowballStemmer("english")
 import re
-from nltk.stem import WordNetLemmatizer 
+
+from nltk.stem import WordNetLemmatizer
+
 from schindler.ML.inference import *
 from schindler.models import MAX_JOURNEY_FREQ, Cluster, UserProfile, interests
 
@@ -37,15 +40,11 @@ def generate_random_users(number):
 def generate_random_user():
     user_interests = ','.join([interest for interest, _ in random.sample(interests, random.randint(1, 7))])
     user = UserProfile(name=names.get_full_name(), journey_frequency=random.randint(0, MAX_JOURNEY_FREQ),
-                       interests=user_interests, Cluster=calculate_cluster( user_interests ))
+                       interests=user_interests, cluster=calculate_cluster( user_interests ))
     user.interests = user_interests
 
     user.save()
     return user.to_json()
-
-
-
-
 
 def calculate_cluster( list_of_interests ):
     return predict_cluster( [list_of_interests] )
