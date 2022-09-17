@@ -24,11 +24,13 @@ def lifts_api(request):
 
 
 @csrf_exempt
-def generate_users_api( request, number ):
-    try:
-        return JsonResponse( generate_random_users(), safe=False )
-    except:
-        return HttpResponse('Error: Could not generate random users')
+def generate_users_api(request):
+    if request.method == "post":
+        try:
+            number = request.get("users")
+            return JsonResponse(generate_random_users(number), safe=False)
+        except:
+            return HttpResponse('Error: Could not generate random users')
 
 @csrf_exempt
 def list_users( request ):
