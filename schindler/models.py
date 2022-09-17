@@ -16,7 +16,8 @@ interests = [
      'Observational, Anecdotal, Situational, Character, One-liner, Ironic, Deadpan, Farcical, Self-deprecating, Slapstick, ...'),
     ('politics', 'Band society, Chiefdom, Empires, Leagues, ...'),
     (
-    'adventure', 'Yoga, Trekking, Cycling, Canoeing, Kayaking, Rock climbing, Multi-adventure travel, New Zealand, ...')
+        'adventure',
+        'Yoga, Trekking, Cycling, Canoeing, Kayaking, Rock climbing, Multi-adventure travel, New Zealand, ...')
 ]
 
 
@@ -26,7 +27,7 @@ class Cluster(models.Model):
 
 class UserProfile(models.Model):
     name = models.CharField(max_length=64)
-    interests = models.CharField(max_length=64, choices=interests)
+    interests = models.TextField()
     journey_frequency = models.IntegerField()
     cluster = models.ForeignKey(Cluster, on_delete=models.CASCADE, related_name='UserProfileCluster', null=True)
 
@@ -34,7 +35,10 @@ class UserProfile(models.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'interests': self.get_interests_display(),
+            'interests': self.interests,
             'journey_frequency': self.journey_frequency,
             'cluster': self.cluster,
         }
+
+    def get_interests_list(self):
+        return self.interests.split(',')
