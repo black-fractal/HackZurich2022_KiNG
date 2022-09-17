@@ -1,0 +1,107 @@
+ body {
+  margin: 0;
+  padding: 0;
+ }
+ 
+ #background 
+{ 
+	 left: 0px; 
+	 top: 0px; 
+	 position: relative; 
+	 margin-left: auto; 
+	 margin-right: auto; 
+	 width: 1366px;
+	 height: 768px; 
+	 overflow: hidden;
+	 z-index:0;
+	} 
+
+ #Layer1 
+{ 
+	 left: 0px; 
+	 top: 0px; 
+	 position: absolute; 
+	 width: 1380px;
+	 height: 776px;
+	 z-index:1;
+} 
+
+ #Layer2 
+{ 
+	 left: 630px; 
+	 top: 359px; 
+	 position: absolute; 
+	 width: 110px;
+	 height: 128px;
+	 z-index:2;
+} 
+
+ #RoundedRectangle1 
+{ 
+	 left: 117px; 
+	 top: 30px; 
+	 position: absolute; 
+	 width: 204px;
+	 height: 55px;
+	 z-index:3;
+} 
+
+ #RoundedRectangle1cop 
+{ 
+	 left: 584px; 
+	 top: 30px; 
+	 position: absolute; 
+	 width: 204px;
+	 height: 55px;
+	 z-index:4;
+} 
+
+ #RoundedRectangle1cop_0 
+{ 
+	 left: 1051px; 
+	 top: 30px; 
+	 position: absolute; 
+	 width: 204px;
+	 height: 55px;
+	 z-index:5;
+} 
+
+ #Layer2copy 
+{ 
+	 left: 170px; 
+	 top: 363px; 
+	 position: absolute; 
+	 width: 102px;
+	 height: 124px;
+	 z-index:6;
+} 
+
+ #Profiler 
+{ 
+	 left: 163px; 
+	 top: 40px; 
+	 position: absolute; 
+	 width: 114px;
+	 height: 29px;
+	 z-index:7;
+} 
+
+ #Sequencer 
+{ 
+	 left: 612px; 
+	 top: 43px; 
+	 position: absolute; 
+	 width: 151px;
+	 height: 31px;
+	 z-index:8;
+} 
+
+ #SimVisualizer 
+{ 
+	 left: 1076px; 
+	 top: 46px; 
+	 position: absolute; 
+	 width: 157px;
+	 height: 21px;
+	 z-index:9;
+} 
