@@ -1,11 +1,11 @@
 from django.urls import path
 
-from schindler.views import dashboard
+from schindler.views import *
 
 urlpatterns = [
     path('schindler/', dashboard, name='schindler'),
 
     # lifts
-    path('schindler/lifts/', dashboard, name='schindler-lifts'),
-    path('schindler/lifts/api/', dashboard, name='schindler-lifts-api'),
+    path('schindler/lifts/', lifts_view, name='schindler-lifts'),
+    path('schindler/lifts/api/', lifts_api, name='schindler-lifts-api'),
 ]
