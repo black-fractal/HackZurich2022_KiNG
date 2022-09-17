@@ -84,6 +84,7 @@ def predict_cluster(data):
 
 def find_nearset_cluster(data_clusters):
   km_model,tfidf_model=load_models('/home/ubuntu/hackzurich/HackZurich2022_KiNG/schindler/ML/Models/Km_model.joblib',  '/home/ubuntu/hackzurich/HackZurich2022_KiNG/schindler/ML/Models/tfidf_vector_model.joblib')
+  df_cluster_mapping = pd.read_csv('/home/ubuntu/hackzurich/HackZurich2022_KiNG/schindler/ML/Clustered Data/cluster_mapping.csv')
   if len(np.unique(data_clusters))==1:
     return np.unique(data_clusters)
   else:
@@ -97,7 +98,7 @@ def find_nearset_cluster(data_clusters):
     distances=[]
     for i in range(len(centers)):
       distances.append(distance.euclidean(centroids_midpoint, centers[i]))
-    return np.argmin(np.array(distances))
+    return  df_cluster_mapping[df_cluster_mapping['Cluster']==np.argmin(np.array(distances))]['Interests']
 
 # data_point={'name': 'Michael Delker',
 #  'interests': 'movie,adventure,science,politics,fashion,culture',
