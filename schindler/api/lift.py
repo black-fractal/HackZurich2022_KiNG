@@ -9,7 +9,7 @@ def lifts_info():
 
     response = requests.get(url)
 
-    if response == 200:
+    if response.status_code == 200:
         lifts = json.loads(response.text)
         return lifts
     else:
