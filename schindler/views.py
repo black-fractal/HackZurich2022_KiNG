@@ -37,3 +37,8 @@ def generate_users_api(request):
 def list_users(request):
     users = UserProfile.objects.all()
     return render(request, 'schindler/users.html', {'users': users})
+
+
+def platte_api(request):
+    pass
+# TODO:return array from users
