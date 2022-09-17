@@ -19,5 +19,9 @@ urlpatterns = [
 
     # simulation
     path('schindler/simulation/generate/', generate_simulation_api, name='schindler-simulation-generate'),
+    path('schindler/simulation/run/', run_simulation, name='schindler-simulation-run'),
+    path('schindler/simulation/stop/', stop_simulation, name='schindler-simulation-stop'),
+    path('schindler/simulation/', list_simulation, name='schindler-simulation'),
+
     path('schindler/simulation/', list_simulation, name='schindler-simulation'),
 ]

@@ -1,0 +1,25 @@
+{% extends 'schindler/base.html' %}
+{% block title %} - Dashboard{% endblock %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card mb-3" style="width: 18rem;">
+                <img src="{% static 'schindler.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Simulation</h5>
+                    <p class="card-text">This section simulates lifts</p>
+                    <a href="{% url 'schindler-simulation' %}" class="btn btn-primary">Request</a>
+                </div>
+            </div>
+            <div class="card mb-3" style="width: 18rem;">
+                <img src="{% static 'schindler.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Users</h5>
+                    <p class="card-text">This section manages users</p>
+                    <a href="{% url 'schindler-users' %}" class="btn btn-primary">Users</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

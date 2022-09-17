@@ -1,7 +1,10 @@
+import datetime
+
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
+from HackZurich2022_KiNG import settings
 from schindler.api.lift import *
 from schindler.api.simulation import *
 from schindler.api.users import *
@@ -9,7 +12,7 @@ from schindler.models import *
 
 
 def dashboard(request):
-    return redirect('schindler-lifts')
+    return render(request, 'schindler/dashboard.html')
 
 
 def lifts_view(request):
@@ -54,6 +57,31 @@ def generate_simulation_api(request):
 def list_simulation(request):
     simulation = Simulation.objects.all()
     return render(request, 'schindler/simulation.html', {'simulation': simulation})
+
+
+def run_simulation(request):
+    now = datetime.datetime.now()
+    if not settings.SIMULATION_STATE:
+        settings.SIMULATION_STATE = True
+    if settings.SIMULATION_JOB_ID is not None:
+        job_request = Simulation.objects.get(settings.SIMULATION_JOB_ID)
+        if settings.SIMULATION_JOB_START + job_request.delay * 1000 >= now:
+            job_request.delete()
+        else:
+            return JsonResponse(job_request.to_json(), safe=False)
+
+    request_job = Simulation.objects.all().first()
+    settings.SIMULATION_JOB_ID = request_job.id
+    settings.SIMULATION_JOB_START = now
+    return JsonResponse(request_job.to_json(), safe=False)
+
+
+def stop_simulation(request):
+    settings.SIMULATION_STATE = False
+    settings.SIMULATION_JOB_ID = None
+    settings.SIMULATION_JOB_START = None
+
+    return HttpResponse("Job Stopped")
 
 
 def platte_api(request):

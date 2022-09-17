@@ -1,0 +1,30 @@
+{% extends 'schindler/base.html' %}
+{% block title %} - Run Simulation{% endblock %}
+{% block scripts %}
+    <script>
+    $(document).ready(function () {
+        var run = false;
+        $("#run-simulation").click(function () {
+            run = true;
+            while (run) {
+                check_request();
+            }
+        });
+
+        $("#stop-simulation").click(function () {
+            run = false;
+            $.get({% url 'schindler-simulation-stop' %}, function (){});
+        });
+
+        function check_request() {
+            $.get({% url 'schindler-simulation-run' %}, function (data) {
+                console.log(data);
+            });
+        }
+    });
+    </script>
+{% endblock %}
+{% block content %}
+<input type="button" class="btn btn-primary" id="run-simulation" value="Run Simulation">
+<input type="button" class="btn btn-primary" id="stop-simulation" value="Stop Simulation">
+{% endblock %}
