@@ -16,4 +16,8 @@ urlpatterns = [
     # clustering
     # path('schindler/cluster/', cluster, name='schindler-cluster'),
     # path('schindler/cluster/image/', cluster, name='schindler-cluster-image'),
+
+    # simulation
+    path('schindler/simulation/generate/', generate_simulation_api, name='schindler-simulation-generate'),
+    path('schindler/simulation/', list_simulation, name='schindler-simulation'),
 ]

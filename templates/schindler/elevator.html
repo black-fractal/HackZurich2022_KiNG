@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elevator</title>
+</head>
+<body>
+{% block content %}
+    <div class="container" id="plate">
+        <div id="peoples">
+
+        </div>
+        <div id="elevators">
+
+        </div>
+        <div id="monitors">
+
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+{% block style %}
+    <style>
+
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function () {
+            for (let i = 0; i < objects["peoples"]; i++) {
+                $(`<img src="paris.jpg" alt="Paris" width="300" height="300">`)
+            }
+            for (let i = 0; i < objects["lifts"]; i++) {
+
+            }
+            for (let i = 0; i < objects["monitors"]; i++) {
+
+            }
+        });
+        {#$.get(url), function (objects) {#}
+        {#    for (let i = 0; i < objects["peoples"]; i++) {#}
+        {#        $(`<img src="paris.jpg" alt="Paris" width="300" height="300">`)#}
+        {#    }#}
+        {#    for (let i = 0; i < objects["lifts"]; i++) {#}
+        {##}
+        {#    }#}
+        {#    for (let i = 0; i < objects["monitors"]; i++) {#}
+        {##}
+        {#    }#}
+        #}#}
+
+    </script>
+{% endblock %}
+</html>
