@@ -77,13 +77,13 @@ def load_models(Path_Kmeans, Path_tfidf):
 
 
 def predict_cluster(data):
-  km_model,tfidf_model=load_models('Models/Km_model.pkl',  'Models/tfidf_vector_model.pkl')
+  km_model,tfidf_model=load_models('/home/ubuntu/hackzurich/HackZurich2022_KiNG/schindler/ML/Models/Km_model.pkl',  '/home/ubuntu/hackzurich/HackZurich2022_KiNG/schindler/ML/Models/tfidf_vector_model.pkl')
   tfidf_matrix = tfidf_model.transform(data)
   lables= km_model.predict(tfidf_matrix)
   return lables[0]
 
 def find_nearset_cluster(data_clusters):
-  km_model,tfidf_model=load_models('Models/Km_model.pkl',  'Models/tfidf_vector_model.pkl')
+  km_model,tfidf_model=load_models('/home/ubuntu/hackzurich/HackZurich2022_KiNG/schindler/ML/Models/Km_model.pkl',  '/home/ubuntu/hackzurich/HackZurich2022_KiNG/schindler/ML/Models/tfidf_vector_model.pkl')
   if len(np.unique(data_clusters))==1:
     return np.unique(data_clusters)
   else:
