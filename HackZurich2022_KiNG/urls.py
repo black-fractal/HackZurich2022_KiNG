@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path
 
 from HackZurich2022_KiNG.settings import STATIC_ROOT, STATIC_URL
+from HackZurich2022_KiNG.views import dashboard as king_dashboard
 from schindler.urls import urlpatterns as schindler_urlpatterns
 
 urlpatterns = [
+    path('', king_dashboard, name='HackZurich2022_KiNG'),
+
     path('admin/', admin.site.urls),
 ]
 
