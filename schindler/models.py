@@ -40,6 +40,7 @@ class UserProfile(models.Model):
     def get_interests_list(self):
         return self.interests.split(',')
 
+
 class Simulation(models.Model):
     user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='SimulationUserProfile', null=True)
     source = models.IntegerField()
@@ -49,7 +50,7 @@ class Simulation(models.Model):
     def to_json(self):
         return {
             'id': self.id,
-            'user_profile': self.user_profile,
+            'user_profile_id': self.user_profile.id,
             'source': self.source,
             'destination': self.destination,
             'delay': self.delay,

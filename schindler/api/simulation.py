@@ -21,6 +21,9 @@ def generate_random_request():
         dst = random.randint(-1, 11)
         if src != dst:
             break
-    user_request = Simulation( user_profile=random.choice( sorted( UserProfile.objects.all() ) ), source=src, destination=dst, delay=random.randint(0, 30) )    
+
+    user_ids = [user.id for user in UserProfile.objects.all()]
+    user_request = Simulation(user_profile_id=random.choice(user_ids), source=src, destination=dst,
+                              delay=random.randint(0, 30))
     user_request.save()
     return user_request.to_json()

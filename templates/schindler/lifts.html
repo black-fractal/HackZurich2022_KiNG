@@ -27,7 +27,14 @@
 
                         for (let i = 0; i < data.length; i++) {
                             let lift_i = data[i];
+
+                            // building
                             let lift_i_building = lift_i['building'];
+                            if (building.indexOf(lift_i_building) === -1) {
+                                building.push(lift_i_building);
+                                show_data += '<h1>${lift_i_building}</h1>';
+                            }
+
                             let lift_i_car = lift_i['car'];
                             let lift_i_layout = lift_i['layout'];
                             let lift_i_maximalPersons = lift_i['maximalPersons'];
@@ -37,6 +44,7 @@
                         }
 
                         lifts_html.data(show_data);
+                        console.log(show_data);
                     }
                 });
             });
