@@ -23,10 +23,10 @@ def generate_random_user():
     user = UserProfile(name=names.get_full_name(), journey_frequency=random.randint(0, MAX_JOURNEY_FREQ),
                        interests=user_interests, Cluster=calculate_cluster( user_interests ))
     user.interests = user_interests
-    user.cluster = predict_cluster([user_interests])
+    # user.cluster = predict_cluster([user_interests])
 
     user.save()
     return user.to_json()
 
 def calculate_cluster( list_of_interests ):
-    pass
+    return predict_cluster([user_interests])
