@@ -2,26 +2,44 @@
 
 {% block title %} - Users{% endblock %}
 {% block content %}
-    <form method="get" action="{% url 'schindler-users-generate' %}">
-        <input type="number" value="100" placeholder="100">
-        <input type="submit" value="generate users">
+    <form>
+        <input type="number" value="100" placeholder="100" id="number_user">
+        <input type="button" value="generate users" id="submit">
     </form>
     <div id="users">
-        <table>
-            <thead> <th> id </th> <th> name </th> <th> interests </th> <th> journey_frequency </th> <th> cluster </th> </thead>
-            {% for user in users %}
+        <table class="table table-dark table-hover" id="users_table">
             <tr>
-                <td> {{ user.id }} </td>
-                <td> {{ user.name }} </td>
-                <td> {{ user.interests.get_display_name }} </td>
-                <td> {{ user.journey_frequency }} </td>
-                <td> {{ user.cluster }} </td>
+            <th> id</th>
+            <th> name</th>
+            <th> interests</th>
+            <th> journey_frequency</th>
+            <th> cluster</th>
             </tr>
-            {% endfor %}
         </table>
     </div>
 {% endblock %}
 
 {% block scripts %}
-    
+    <script>
+        $(document).ready(function () {
+            $('#submit').click(function () {
+                let number = $("#number_user" ).val();
+                $.post({% url 'schindler-users-generate' %}, {
+                    'users':number
+                }, function (users) {
+                    for (let i = 0; i < users.length; i++ ){
+                        let user = users[i]
+                        let id = user["id"]
+                        let name = user["name"]
+                        let interests = user["interests"]
+                        let journey_frequency = ["journey_frequency"]
+                        let cluster = ["cluster"]
+                        $.(`<tr><td>${id}</td><td>${name}</td><td>${interests}</td><td>${journey_frequency}</td><td>${cluster}</td></tr>`).appendTo('#users_table')
+                    }
+
+                })
+            });
+        });
+    </script>
+
 {% endblock %}
