@@ -8,4 +8,8 @@ urlpatterns = [
     # lifts
     path('schindler/lifts/', lifts_view, name='schindler-lifts'),
     path('schindler/lifts/api/', lifts_api, name='schindler-lifts-api'),
+
+    # users
+    path('schindler/users/generate/?<int:number>', generate_users_api, name='schindler-users-generate'),
+    path('schindler/users/', list_users, name='schindler-users'),
 ]

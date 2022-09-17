@@ -1,0 +1,27 @@
+{% extends 'schindler/base.html' %}
+
+{% block title %} - Users{% endblock %}
+{% block content %}
+    <form method="get" action="{% url 'schindler-users-generate' %}">
+        <input type="number" value="100" placeholder="100">
+        <input type="submit" value="generate users">
+    </form>
+    <div id="users">
+        <table>
+            <thead> <th> id </th> <th> name </th> <th> interests </th> <th> journey_frequency </th> <th> cluster </th> </thead>
+            {% for user in users %}
+            <tr>
+                <td> {{ user.id }} </td>
+                <td> {{ user.name }} </td>
+                <td> {{ user.interests.get_display_name }} </td>
+                <td> {{ user.journey_frequency }} </td>
+                <td> {{ user.cluster }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    
+{% endblock %}
