@@ -28,4 +28,4 @@ def generate_random_user():
     return user.to_json()
 
 def calculate_cluster( list_of_interests ):
-    return predict_cluster( list_of_interests )
+    return predict_cluster( [list_of_interests] )
