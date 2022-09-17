@@ -3,7 +3,7 @@
 {% block title %} - Lifts{% endblock %}
 {% block content %}
     <div>
-        <input class="btn btn-dark" id="refresh-lifts" type="button">
+        <input class="btn btn-dark" id="refresh-lifts" type="button" value="Refresh Lifts">
     </div>
     <div id="lifts"></div>
 
@@ -14,9 +14,10 @@
         $(document).ready(function () {
             $("#refresh-lifts").click(function (e) {
                 $.ajax({
-                    url: '',
+                    url: '{% url 'schindler-lifts-api' %}',
                     method: 'get',
                     success: function (data) {
+                        console.log(data);
                         let lifts_html = $("#lifts");
                         lifts_html.empty();
                         lifts_html.html(data);
