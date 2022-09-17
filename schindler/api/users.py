@@ -3,7 +3,7 @@ import random
 import names
 
 from schindler.models import MAX_JOURNEY_FREQ, UserProfile, interests
-
+from schindler.ML.inference import predict_cluster
 
 def generate_random_users(number):
     users = []
@@ -21,6 +21,7 @@ def generate_random_user():
     user = UserProfile(name=names.get_full_name(), journey_frequency=random.randint(0, MAX_JOURNEY_FREQ),
                        interests=user_interests)
     user.interests = user_interests
+    user.cluster = predict_cluster([user_interests])
 
     user.save()
     return user.to_json()
