@@ -2,9 +2,27 @@
 
 {% block title %} - Lifts{% endblock %}
 {% block content %}
+    <div>
+        <input class="btn btn-dark" id="refresh-lifts" type="button">
+    </div>
+    <div id="lifts"></div>
 
 {% endblock %}
 
 {% block scripts %}
-
+    <script>
+        $(document).ready(function () {
+            $("#refresh-lifts").click(function (e) {
+                $.ajax({
+                    url: '',
+                    method: 'get',
+                    success: function (data) {
+                        let lifts_html = $("#lifts");
+                        lifts_html.empty();
+                        lifts_html.html(data);
+                    }
+                });
+            });
+        });
+    </script>
 {% endblock %}
