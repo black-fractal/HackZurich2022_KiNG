@@ -52,4 +52,7 @@ def generate_random_user():
     return user.to_json()
 
 def calculate_cluster( list_of_interests ):
+    print('--------------------------------')
+    print( predict_cluster( [list_of_interests] ) )
+    print('--------------------------------')
     return predict_cluster( [list_of_interests] )
