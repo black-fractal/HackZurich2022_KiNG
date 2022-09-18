@@ -65,16 +65,19 @@ def run(request):
 
 def run_simulation(request):
     now = datetime.datetime.now()
-    if not settings.SIMULATION_STATE:
+    if not settings.SIMULATION_STATE:  # Simulation not running
         settings.SIMULATION_STATE = True
-    if settings.SIMULATION_JOB_ID is not None:
+
+    if settings.SIMULATION_JOB_ID is not None:  # Already have a Job ID
         job_request = Simulation.objects.get(id=settings.SIMULATION_JOB_ID)
         if now - datetime.timedelta(seconds=job_request.delay) >= settings.SIMULATION_JOB_START:
             job_request.delete()
         else:
             return JsonResponse(job_request.to_json(), safe=False)
 
+    # Assign a job ID
     request_job = Simulation.objects.all().first()
+    publish(request_job.source, request_job.destination)
     settings.SIMULATION_JOB_ID = request_job.id
     settings.SIMULATION_JOB_START = now
     return JsonResponse(request_job.to_json(), safe=False)

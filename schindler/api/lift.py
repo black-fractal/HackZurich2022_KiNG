@@ -4,7 +4,7 @@ import websocket
 import ssl
 import asyncio
 
-from schindler import pgw_uri
+from schindler import pgw_uri, my_id
 
 
 def lifts_info():
@@ -17,6 +17,26 @@ def lifts_info():
         return lifts
     else:
         raise Exception('Could not fetch data')
+
+
+def publish(source: int, destination: int):
+    url = f'https://{pgw_uri}/publish/'
+    try:
+        response = requests.post(
+            url,
+            headers={'Content-Type': 'text/plain'},
+            data=json.dumps({
+                'asyncId': my_id, 'options':
+                    {"destination":
+                         {"destinationFloor": destination}
+                     }, "target":
+                    {"floor": source}
+            }))
+        if response.status_code == 202:
+            return json.loads(response.text)['asyncId'] == my_id
+    except:
+        pass
+    return False
 
 
 # async def call_elevator(ws, message):
