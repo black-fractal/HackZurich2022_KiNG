@@ -99,7 +99,7 @@ def find_nearset_cluster(data_clusters):
     distances=[]
     for i in range(len(centers)):
       distances.append(distance.euclidean(centroids_midpoint, centers[i]))
-    return  df_cluster_mapping[df_cluster_mapping['Cluster']==np.argmin(np.array(distances))]['Interests']
+    return  df_cluster_mapping[df_cluster_mapping['Cluster']==np.argmin(np.array(distances))]['Interests'].values
 
 # data_point={'name': 'Michael Delker',
 #  'interests': 'movie,adventure,science,politics,fashion,culture',
