@@ -28,10 +28,10 @@
                     $.get("{% url 'schindler-simulation-run' %}", function (data) {
                         let simulation_status = "<div class='center'> " +
                             "Request id: <b>" + data.id +
-                            "</b>, User Profile id: <b>" + data.user_profile_id +
-                            "</b>, Source Floor: <b>" + data.source +
-                            "</b>, Destination Floor: <b>" + data.destination +
-                            "</b>, Delay <b>" + data.delay + "</b> seconds" +
+                            "</b><br> User Profile id: <b>" + data.user_profile_id +
+                            "</b><br> Source Floor: <b>" + data.source +
+                            "</b><br> Destination Floor: <b>" + data.destination +
+                            "</b><br> Delay <b>" + data.delay + "</b> seconds" +
                             "</div>";
                         $("#simulation-data").empty().append(simulation_status);
                     });
