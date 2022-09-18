@@ -59,13 +59,17 @@ def list_simulation(request):
     return render(request, 'schindler/simulation.html', {'simulation': simulation})
 
 
+def run(request):
+    return render(request, 'schindler/run.html')
+
+
 def run_simulation(request):
     now = datetime.datetime.now()
     if not settings.SIMULATION_STATE:
         settings.SIMULATION_STATE = True
     if settings.SIMULATION_JOB_ID is not None:
-        job_request = Simulation.objects.get(settings.SIMULATION_JOB_ID)
-        if settings.SIMULATION_JOB_START + job_request.delay * 1000 >= now:
+        job_request = Simulation.objects.get(id=settings.SIMULATION_JOB_ID)
+        if now - datetime.timedelta(seconds=job_request.delay) >= settings.SIMULATION_JOB_START:
             job_request.delete()
         else:
             return JsonResponse(job_request.to_json(), safe=False)

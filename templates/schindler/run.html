@@ -2,29 +2,98 @@
 {% block title %} - Run Simulation{% endblock %}
 {% block scripts %}
     <script>
-    $(document).ready(function () {
-        var run = false;
-        $("#run-simulation").click(function () {
-            run = true;
-            while (run) {
-                check_request();
+        $(document).ready(function () {
+            var run = false;
+
+            function timer(ms) {
+                return new Promise(res => setTimeout(res, ms));
+            }
+
+            $("#run-simulation").click(function () {
+                    run = true;
+                    check_request();
+                    check_lifts();
+                }
+            );
+
+            $("#stop-simulation").click(function () {
+                run = false;
+                $.get("{% url 'schindler-simulation-stop' %}", function () {
+                    $("#simulation-data").empty();
+                });
+            });
+
+            async function check_request() {
+                while (run) {
+                    $.get("{% url 'schindler-simulation-run' %}", function (data) {
+                        let simulation_status = "<div class='center'> " +
+                            "Request id: <b>" + data.id +
+                            "</b>, User Profile id: <b>" + data.user_profile_id +
+                            "</b>, Source Floor: <b>" + data.source +
+                            "</b>, Destination Floor: <b>" + data.destination +
+                            "</b>, Delay <b>" + data.delay + "</b> seconds" +
+                            "</div>";
+                        $("#simulation-data").empty().append(simulation_status);
+                    });
+                    await timer(500);
+                }
+            }
+
+            async function check_lifts() {
+                while (run) {
+                    $.ajax({
+                        url: '{% url 'schindler-lifts-api' %}',
+                        method: 'get',
+                        success: function (data) {
+                            let lifts_html = $("#lifts");
+
+                            let show_data = "<div class='center'>";
+
+                            for (let i = 0; i < data.length; i++) {
+                                let lift_i = data[i];
+                                show_data += '<div class="row">' +
+                                    '<p>' +
+                                    'Lift ' + lift_i.name +
+                                    ', Position x(' + lift_i.x + ') y(' + lift_i.y + ') Maximum ' + lift_i.maximalPersons +
+                                    ' Persons' +
+                                    '</p>';
+
+                                let building = lift_i.building;
+                                show_data += '<p>' +
+                                    'Building ' + building.number + ' ' + building.name + '</p>';
+
+                                let car = lift_i.car;
+                                show_data += '<p>' +
+                                    'Car ' + car.car + ' ' + car.description +
+                                    '</p>';
+
+                                let layouts = lift_i.layout;
+                                for (let j = 0; j < layouts.length; j++) {
+                                    let layout = layouts[j];
+                                    console.log(layout);
+                                    show_data += '<p>Floor ' + layout.floor + ' Zone ' + layout.zone + '</p>'
+                                }
+
+                                show_data += '</div>';
+                            }
+
+                            show_data += '</div>';
+                            lifts_html.empty().append(show_data);
+
+                        }
+                    });
+                    await timer(500);
+                }
             }
         });
-
-        $("#stop-simulation").click(function () {
-            run = false;
-            $.get({% url 'schindler-simulation-stop' %}, function (){});
-        });
-
-        function check_request() {
-            $.get({% url 'schindler-simulation-run' %}, function (data) {
-                console.log(data);
-            });
-        }
-    });
     </script>
 {% endblock %}
 {% block content %}
-<input type="button" class="btn btn-primary" id="run-simulation" value="Run Simulation">
-<input type="button" class="btn btn-primary" id="stop-simulation" value="Stop Simulation">
+    <div class="container-fluid">
+        <input type="button" class="btn btn-success" id="run-simulation" value="Run Simulation">
+        <input type="button" class="btn btn-danger" id="stop-simulation" value="Stop Simulation">
+        <div id="simulation-data"></div>
+        <div id="lifts"></div>
+    </div>
+
 {% endblock %}

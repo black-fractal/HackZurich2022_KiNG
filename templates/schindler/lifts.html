@@ -15,38 +15,7 @@
     <script>
         $(document).ready(function () {
             $("#refresh-lifts").click(function (e) {
-                $.ajax({
-                    url: '{% url 'schindler-lifts-api' %}',
-                    method: 'get',
-                    success: function (data) {
-                        let lifts_html = $("#lifts");
-                        let show_data = "";
 
-                        lifts_html.remove();
-                        let building = [];
-
-                        for (let i = 0; i < data.length; i++) {
-                            let lift_i = data[i];
-
-                            // building
-                            let lift_i_building = lift_i['building'];
-                            if (building.indexOf(lift_i_building) === -1) {
-                                building.push(lift_i_building);
-                                show_data += '<h1>${lift_i_building}</h1>';
-                            }
-
-                            let lift_i_car = lift_i['car'];
-                            let lift_i_layout = lift_i['layout'];
-                            let lift_i_maximalPersons = lift_i['maximalPersons'];
-                            let lift_i_name = lift_i['name'];
-                            let lift_i_x = lift_i['x'];
-                            let lift_i_y = lift_i['y'];
-                        }
-
-                        lifts_html.data(show_data);
-                        console.log(show_data);
-                    }
-                });
             });
         });
     </script>
