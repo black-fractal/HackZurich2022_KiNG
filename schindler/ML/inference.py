@@ -85,7 +85,7 @@ def predict_cluster(data):
 
 def find_nearset_cluster(data_clusters):
   km_model,tfidf_model=load_models('/home/ubuntu/hackzurich/HackZurich2022_KiNG/schindler/ML/Models/Km_model.joblib',  '/home/ubuntu/hackzurich/HackZurich2022_KiNG/schindler/ML/Models/tfidf_vector_model.joblib')
-  df_cluster_mapping = pd.read_csv('/home/ubuntu/hackzurich/HackZurich2022_KiNG/schindler/ML/Clustered Data/cluster_mapping_.csv.csv')
+  df_cluster_mapping = pd.read_csv('/home/ubuntu/hackzurich/HackZurich2022_KiNG/schindler/ML/Clustered Data/cluster_mapping_.csv')
   if len(np.unique(data_clusters))==1:
     return np.unique(data_clusters)
   else:

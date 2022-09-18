@@ -1,4 +1,4 @@
-from inference import predict_cluster
+from inference import predict_cluster,find_nearset_cluster
 import nltk
 import re
 from nltk.stem.snowball import SnowballStemmer
@@ -19,10 +19,12 @@ from nltk.stem import WordNetLemmatizer
 #     # print(filtered_tokens)
 #     return filtered_tokens
 
-data_point={'name': 'Michael Delker',
- 'interests': 'movie,adventure,science,politics,fashion,culture',
- 'journey_frequency': 702,
- 'cluster': None}
+# data_point={'name': 'Michael Delker',
+#  'interests': 'movie,adventure,science,politics,fashion,culture',
+#  'journey_frequency': 702,
+#  'cluster': None}
 
-print('predict cluster')
-print(predict_cluster([data_point['interests']])) 
+# print('predict cluster')
+# print(predict_cluster([data_point['interests']])) 
+print('prind midpoint cluster')
+print(find_nearset_cluster([10,20,22,35,50]))
