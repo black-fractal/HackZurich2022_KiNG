@@ -19,8 +19,7 @@ interests = [
 
 
 class Cluster(models.Model):
-    name = models.CharField(max_length=64, null=True)
-
+    label = models.IntegerField(null=True)
 
 class UserProfile(models.Model):
     name = models.CharField(max_length=64)
@@ -34,7 +33,7 @@ class UserProfile(models.Model):
             'name': self.name,
             'interests': self.interests,
             'journey_frequency': self.journey_frequency,
-            'cluster': self.cluster,
+            'cluster': self.cluster.label,
         }
 
     def get_interests_list(self):
