@@ -7,43 +7,44 @@ Original file is located at
     https://colab.research.google.com/drive/1yJ-cmLuKCHfDVXzXgqGpXrprDh-HJ9jL
 """
 
+import json
+import os
+import time
+from copy import deepcopy
+
 # Commented out IPython magic to ensure Python compatibility.
 import joblib
-from sklearn.cluster import KMeans
-from scipy.spatial import distance
-from sklearn.feature_extraction.text import TfidfVectorizer
-import numpy as np
-from scipy.cluster.hierarchy import ward, dendrogram, fcluster, single, complete
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.metrics import silhouette_score
-
-# feature extraction
-from sklearn.feature_extraction.text import TfidfVectorizer
-import nltk
-from nltk.stem import WordNetLemmatizer 
-
-# data
-import pandas as pd
-import numpy as np
-import os
-import json
-
 # viz
 import matplotlib.pyplot as plt
-# %matplotlib inline
-
+import nltk
+import numpy as np
+# data
+import pandas as pd
+from nltk.stem import WordNetLemmatizer
+from scipy.cluster.hierarchy import (complete, dendrogram, fcluster, single,
+                                     ward)
+from scipy.spatial import distance
+from sklearn.cluster import KMeans
+# feature extraction
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics import silhouette_score
+from sklearn.metrics.pairwise import cosine_similarity
 # other
 from tqdm import tqdm
-from copy import deepcopy
-import time
+
+# %matplotlib inline
+
 
 
 nltk.download('wordnet')
 nltk.download('punkt')
 
 from nltk.stem.snowball import SnowballStemmer
+
 stemmer = SnowballStemmer("english")
 import re
+
+
 def tokenize_and_stem(text):
     # first tokenize by sentence, then by word to ensure that punctuation is caught as it's own token
     tokens = [word for sent in nltk.sent_tokenize(text) for word in nltk.word_tokenize(sent)]
